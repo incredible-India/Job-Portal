@@ -60,7 +60,7 @@ python .\manage.py runserver
  7. open browser and type in url  http://127.0.0.1:8000/
  8. to see the admin control http://127.0.0.1:8000/admin  
  9. username is myjob and password is myjob
- 10. To Edit the name and info in footer goto core->templates->core->footer.html  ther u can edit your information.
+ 10. To Edit the name and info in footer goto core->templates->core->footer.html  then u can edit your information.
 
  11. Feel free to contact me if any issue is still there 8604470501
 
