@@ -31,13 +31,13 @@ The **Job Portal App** is a web-based application that allows users to browse, a
 
 Follow these steps to get the application running locally.
 
-### 1.open cmd or powershell Clone the Repository
+ 1.open cmd or powershell Clone the Repository
 
 ```bash
 git clone https://github.com/incredible-India/Job-Portal.git
 cd job-portal
 ```
-### 2. Locate the directory where manage.py file is there in same directory open powershell or cmd
+ 2. Locate the directory where manage.py file is there in same directory open powershell or cmd
 ### 3. make sure Django and python is install in your local machine
 ### 4. if django is not install then cmd/powershell type the follwing command
 ```bash
@@ -56,12 +56,25 @@ python .\manage.py runserver
 
 ```
 
-### 6. Default it will run on port 8000
-### 7. open browser and type in url  http://127.0.0.1:8000/
-### 8. to see the admin control http://127.0.0.1:8000/admin  
-### 9. username is myjob and password is myjob
+ 6. Default it will run on port 8000
+ 7. open browser and type in url  http://127.0.0.1:8000/
+ 8. to see the admin control http://127.0.0.1:8000/admin  
+ 9. username is myjob and password is myjob
+ 10. To Edit the name and info in footer goto core->templates->core->footer.html  ther u can edit your information.
 
-### 10. Feel free to contact me if any issue is still there 8604470501
+ 11. Feel free to contact me if any issue is still there 8604470501
+
+### ScreenShots
+![image](https://github.com/user-attachments/assets/05ccaba1-75e3-491d-ba05-13654ed3c32a)
+![image](https://github.com/user-attachments/assets/bd15324e-3206-4707-86a8-96963d8a4634)
+![image](https://github.com/user-attachments/assets/987fd271-2dba-4662-bc4a-4e154e9bba41)
+![image](https://github.com/user-attachments/assets/be30a584-0bd8-40cd-9167-45033a4ee032)
+![image](https://github.com/user-attachments/assets/3dd05bc8-efa1-4852-9de6-e8f18a102b24)
+
+
+
+
+
 
 
 
