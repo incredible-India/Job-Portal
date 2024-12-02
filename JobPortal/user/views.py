@@ -3,9 +3,10 @@ from django.views import View
 from . import forms
 from django.db.models import Q
 from django.contrib import messages
-from .models import UserProfile
+from .models import UserProfile,AppliedJob
 from django.utils.decorators import method_decorator
 from .middleware  import checkingUserAuthentication
+from adminjob.models import Job
 # Create your views here.
 class newUser(View):
     @method_decorator(checkingUserAuthentication)
@@ -63,4 +64,52 @@ class logout(View):
    
         
         return HttpResponseRedirect('/')
+    
+
+class UserProfiles(View):
+    @method_decorator(checkingUserAuthentication)
+    def get(self,request):
+        if request.isauth:
+            user= UserProfile.objects.get(email=request.email)
+            jobs = AppliedJob.objects.filter(user = user.id)
+            print(jobs,"is applid")
+            return render(request,"user/userprofile.html",{"user":user,"job" :jobs})
+        else:
+            return HttpResponseRedirect('/')
         
+
+class applyJob(View):
+    def get(self,request,id):
+        if request.isauth:
+            isapplied = AppliedJob.objects.filter(job=id).exists();
+            if isapplied:
+                messages.info(request,'You have already applied for this job');
+            else:
+                users  = UserProfile.objects.get(email=request.email)
+                jobs = Job.objects.get(id=id)
+                AppliedJob.objects.create(user = users ,job = jobs)
+                messages.info(request,'job applied successfully!!');
+            return HttpResponseRedirect('/')
+        else:
+            return HttpResponseRedirect('/')
+
+
+class deleteAppliedJOB(View):
+    def get(self,request,id):
+        isapplied = AppliedJob.objects.filter(id=id).exists()
+        if isapplied:
+            AppliedJob.objects.get(id=id).delete()
+            return HttpResponseRedirect('/user/profile/')
+
+        else:
+            return HttpResponseRedirect('/user/profile/')
+        
+class jobDetail(View):
+    def get(self,request,id):
+        isjob = Job.objects.filter(id=id).exists()
+        if isjob:
+            job=Job.objects.get(id=id)
+            return render(request,"user/jobdetails.html",{"job":job})
+
+        else:
+            return HttpResponseRedirect('/user/profile/')

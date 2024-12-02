@@ -9,15 +9,31 @@
           <a class="nav-link" href="/"> <i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
         </li>
 
+    
+
+        
+        {% if request.isauth %}
+
+        <li class="nav-item">
+          <a class="nav-link" href="/user/profile/"> <i class="fas fa-user"></i> Welcome! {{request.name}}</a>
+        </li>
+
         <li class="nav-item">
           <a class="nav-link" href="/user/logout"> <i class="fas fa-book"></i> Logout</a>
         </li>
+
+        {% else %}
         <li class="nav-item">
           <a class="nav-link" href="/user/new-user/"> <i class="fas fa-user"></i> Sign up</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/user/login"><i class="fas fa-key"></i> Login</a>
         </li>
+        {% endif %}
+          
+
       </ul>
     </div>
   </nav>
+
+ 
